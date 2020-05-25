@@ -22,8 +22,8 @@ RUN cd /workspace \
 RUN cd /workspace \
  && git clone https://github.com/google/nucleus
 RUN pyenv global 3.8.2
-RUN pip install numpy
 ENV TF_OPT "--copt=-msse4.1 --copt=-msse4.2 --copt=-mavx --copt=-O3"
+RUN pip install numpy
 RUN cd /workspace/nucleus \
  && bazel build -c opt ${TF_OPT} nucleus/...
 RUN cd /workspace/nucleus \
